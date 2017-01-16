@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Forward root to the swagger documentation
+GET     /                                   controllers.Default.redirect(to = "/swagger")
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /swagger.json                       controllers.SwaggerController.json
+GET     /swagger                            controllers.SwaggerController.index
+
+GET     /status                             controllers.StatusController.index
